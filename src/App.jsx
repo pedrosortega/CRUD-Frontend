@@ -87,7 +87,10 @@ const App = () => {
             element={<StudentForm mode="edit" onSuccess={fetchAllStudents} />}
           /> */}
 
-          <Route path="/students/:id" element={<SingleStudent />} />
+          <Route
+            path="/students/:id"
+            element={<SingleStudent fetchAllStudents={fetchAllStudents} />}
+          />
 
           <Route path="*" element={<NotFound />} />
         </Routes>
