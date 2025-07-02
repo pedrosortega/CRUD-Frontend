@@ -2,6 +2,7 @@ import React from "react";
 import api from "../api/axiosInstance";
 
 const StudentCard = ({ student, fetchAllStudents }) => {
+  
   const Delete = async () => {
     try {
       await api.delete(`/students/${student.user_id}`);

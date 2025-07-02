@@ -12,8 +12,8 @@ import api from "./api/axiosInstance";
 import StudentsList from "./components/StudentsList";
 // import StudentForm from "./components/StudentForm";
 import StudentCard from "./components/StudentCard";
-// import SingleStudent from "./components/SingleStudent";
-// import NotFound from "./components/NotFound";
+import SingleStudent from "./components/SingleStudent";
+import NotFound from "./components/NotFound";
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 
 const App = () => {
@@ -87,10 +87,9 @@ const App = () => {
             element={<StudentForm mode="edit" onSuccess={fetchAllStudents} />}
           /> */}
 
-          {/* 
           <Route path="/students/:id" element={<SingleStudent />} />
 
-          <Route path="*" element={<NotFound />} /> */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </div>
