@@ -1,16 +1,8 @@
 import React from "react";
 import api from "../api/axiosInstance";
+import { Link } from "react-router";
 
 const StudentCard = ({ student, fetchAllStudents }) => {
-  const Delete = async () => {
-    try {
-      await api.delete(`/students/${student.user_id}`);
-      fetchAllStudents();
-    } catch (error) {
-      console.error("Error deleting student:", error);
-    }
-  };
-
   return (
     <div className="student-card">
       <img
@@ -22,15 +14,14 @@ const StudentCard = ({ student, fetchAllStudents }) => {
 
       <div className="student-info">
         <h3>
-          {student.firstName} {student.lastName}
+          <Link to={`/students/${student.user_id}`}>
+            {student.firstName} {student.lastName}
+          </Link>
         </h3>
+
         <p>{student.email}</p>
         <p>GPA: {student.gpa.toFixed(2)}</p>
       </div>
-
-      <button className="delete-button" onClick={Delete}>
-        🗑️
-      </button>
     </div>
   );
 };

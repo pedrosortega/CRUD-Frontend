@@ -1,4 +1,13 @@
-//let's do a cool 404 page
+import React from 'react'
+
+const NotFound = () => {
+    return (
+        <div>
+            <h1> 404 </h1> 
+            <h3> The Page you have requested was not found </h3>
+        </div>
+    )
+}
 
 // This goes at the bottom of the file
-// export default NotFound;
+export default NotFound;

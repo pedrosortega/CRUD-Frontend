@@ -1,4 +1,40 @@
-// to do
+import React, { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router";
+import api from "../api/axiosInstance";
 
-// This goes at the bottom of the file
-// export default SingleStudent;
+const SingleStudent = ({ fetchAllStudents }) => {
+  const { id } = useParams();
+  const [student, setStudent] = useState(null);
+
+  useEffect(() => {
+    const fetchStudent = async () => {
+      try {
+        const res = await api.get(`/students/${id}`);
+        setStudent(res.data);
+      } catch (error) {
+        console.error("Error fetching student:", error);
+      }
+    };
+    fetchStudent();
+  }, [id]);
+
+  if (!student) return <p>Loading…</p>;
+
+  return (
+    <div className="single-student">
+      <img
+        src={student.imageURL}
+        alt={`${student.firstName} ${student.lastName}`}
+        width={200}
+        height={200}
+      />
+      <h2>
+        {student.firstName} {student.lastName}
+      </h2>
+      <p>Email: {student.email}</p>
+      <p>GPA: {student.gpa.toFixed(2)}</p>
+    </div>
+  );
+};
+
+export default SingleStudent;
