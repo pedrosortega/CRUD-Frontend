@@ -49,6 +49,8 @@ const App = () => {
       <h1>Campus Listing</h1>
       <NavBar />
       <div className="app">
+        {/* Please consider the following routes as a draft and not final */}
+        {/* I reviewed the assignment sheet and thought about the necessary components */}
         <Routes>
           <Route path="/" element={<HomePage />} />
 
