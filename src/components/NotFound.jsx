@@ -9,5 +9,4 @@ const NotFound = () => {
     )
 }
 
-// This goes at the bottom of the file
 export default NotFound;

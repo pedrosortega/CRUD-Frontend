@@ -20,6 +20,16 @@ const SingleStudent = ({ fetchAllStudents }) => {
 
   if (!student) return <p>Loading…</p>;
 
+  const handleDelete = async () => {
+    try {
+      await api.delete(`/students/${id}`);
+      fetchAllStudents();
+      navigate("/students");
+    } catch (error) {
+      console.error("Error deleting student:", error);
+    }
+  };
+
   return (
     <div className="single-student">
       <img
@@ -33,6 +43,9 @@ const SingleStudent = ({ fetchAllStudents }) => {
       </h2>
       <p>Email: {student.email}</p>
       <p>GPA: {student.gpa.toFixed(2)}</p>
+
+      <button className="delete-button" onClick={handleDelete}> Delete Student </button>
+      <button className="edit-button"> Edit Student</button>
     </div>
   );
 };
