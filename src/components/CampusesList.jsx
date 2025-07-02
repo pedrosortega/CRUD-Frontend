@@ -1,4 +1,6 @@
 import React from "react";
+import CampusCard from "./CampusCard";
+
 const CampusesList = ({ campuses = [], fetchAllCampuses }) => {
   return (
     <div>
@@ -13,4 +15,4 @@ const CampusesList = ({ campuses = [], fetchAllCampuses }) => {
   );
 };
 // This goes at the bottom of the file
-// export default CampusesList;
+export default CampusesList;

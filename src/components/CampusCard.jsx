@@ -24,3 +24,5 @@ const CampusCard = ({ campus, fetchAllCampuses }) => {
     </div>
   );
 };
+
+export default CampusCard;
