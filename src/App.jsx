@@ -6,7 +6,8 @@ import "./AppStyles.css";
 import NavBar from "./components/NavBar";
 import api from "./api/axiosInstance";
 // import HomePage from "./components/HomePage";
-// import CampusesList from "./components/CampusesList";
+import CampusesList from "./components/CampusesList";
+import CampusCard from "./components/CampusCard";
 // import CampusForm from "./components/CampusForm";
 // import SingleCampus from "./components/SingleCampus";
 import StudentsList from "./components/StudentsList";
@@ -30,18 +31,18 @@ const App = () => {
     }
   }
 
-  // async function fetchAllCampuses() {
-  //   try {
-  //     const CampusResponse = await api.get(`/campuses`);
-  //     console.log("✅ API CampusResponse:", CampusResponse.data);
-  //     setCampuses(CampusResponse.data);
-  //   } catch (error) {
-  //     console.error("Error fetching: ", error);
-  //   }
-  // }
+  async function fetchAllCampuses() {
+    try {
+      const CampusResponse = await api.get(`/campuses`);
+      console.log("✅ API CampusResponse:", CampusResponse.data);
+      setCampuses(CampusResponse.data);
+    } catch (error) {
+      console.error("Error fetching: ", error);
+    }
+  }
 
   useEffect(() => {
-    // fetchAllCampuses();
+    fetchAllCampuses();
     fetchAllStudents();
   }, []);
 
@@ -55,10 +56,10 @@ const App = () => {
         <Routes>
           {/* <Route path="/" element={<HomePage />} /> */}
 
-          {/* <Route
+          <Route
             path="/campuses"
             element={<CampusesList campuses={campuses} />}
-          /> */}
+          />
 
           {/* <Route
             path="/campuses/new"
