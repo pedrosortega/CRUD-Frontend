@@ -1,32 +1,74 @@
 import React, { useState } from "react";
+import {Link} from 'react';
 import "./AddCampus.css";
+import axios from "axios";
 
-const formValues = [
+const formValues = 
   {
     name: "",
     img: "",
     description: "",
     address: "",
-  },
-];
+  }
 
-const AddCampus = () => {
-  const [form, setForm] = formValues;
 
+const AddCampus = ({fetchAllCampuses}) => {
+  const [form, setForm] = useState(formValues);
+console.log("form state-->", form)
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+  try {
+    await axios.post("http://localhost:8080/api/campuses", form)
+     fetchAllCampuses();
+  } catch(error) {
+    console.error("Error adding task:", error)
+  }
+};
+
+
+ 
   return (
     <main className="add-campus-container">
-      <form className="add-campus-form">
+      <h1>Add New Campus Form</h1>
+      <form className="add-campus-form" onSubmit={handleSubmit}>
         <label htmlFor="campus-name">Campus Name:</label>
-        <input type="text" id="campus-name" name="name" required />
+        <input 
+        type="text" 
+        id="campus-name" 
+        name="name"
+        value={form.name}
+        required 
+        onChange={(e) => setForm({ ...form, [e.target.name]: e.target.value })}
+        />
 
         <label htmlFor="campus-image">Image:</label>
-        <input type="text" id="campus-image" name="image" />
+        <input 
+        type="text" 
+        id="campus-image" 
+        name="img" 
+        onChange={(e) => setForm({...form, [e.target.name]: e.target.value})}
+        />
 
         <label htmlFor="description">Description:</label>
-        <textarea id="description" name="description" cols={40} rows={10} />
+        <textarea 
+        id="description" 
+        name="description" 
+        cols={40} 
+        rows={10} 
+        value={form.description}
+        onChange={(e) => setForm({...form,[e.target.name]: e.target.value})}
+        />
 
         <label htmlFor="address">Address:</label>
-        <input type="text" id="address" name="address" required />
+        <input type="text"
+        id="address"
+        name="address"
+        required
+        value={form.address}
+        onChange={(e) => setForm({...form, [e.target.name]: e.target.value})}/>
+        
+        <button>Sumbit</button>
       </form>
     </main>
   );

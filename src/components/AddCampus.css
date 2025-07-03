@@ -1,8 +1,10 @@
 .add-campus-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   padding: 2rem;
   background-color: #f9f9f9;
+  gap: 2rem;
 }
 
 .add-campus-form {

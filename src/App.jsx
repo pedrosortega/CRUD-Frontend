@@ -61,7 +61,7 @@ const App = () => {
           />
           <Route
           path = "/add-campus"
-          element={<AddCampus/>}/>
+          element={<AddCampus fetchAllCampuses = {fetchAllCampuses}/>}/>
 
           {/* <Route
             path="/campuses/new"
