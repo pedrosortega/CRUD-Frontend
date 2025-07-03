@@ -4,52 +4,184 @@ import api from "../api/axiosInstance";
 
 const SingleStudent = ({ fetchAllStudents }) => {
   const { id } = useParams();
-  const [student, setStudent] = useState(null);
   const navigate = useNavigate();
 
+  const [student, setStudent] = useState(null);
+  const [form, setForm] = useState(null);
+  const [editing, setEditing] = useState(false);
+  const [campusList, setCampus] = useState([]);
+
   useEffect(() => {
-    const fetchStudent = async () => {
+    (async () => {
       try {
-        const res = await api.get(`/students/${id}`);
-        setStudent(res.data);
-      } catch (error) {
-        console.error("Error fetching student:", error);
+        const [sRes, cRes] = await Promise.all([
+          api.get(`/students/${id}`),
+          api.get("/campuses"),
+        ]);
+        setStudent(sRes.data);
+        setForm(sRes.data);
+        setCampus(cRes.data);
+      } catch (err) {
+        console.error("Error loading data:", err);
       }
-    };
-    fetchStudent();
+    })();
   }, [id]);
 
-  if (!student) return <p>Loading…</p>;
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+  };
+
+  const handleEditSave = async (e) => {
+    e.preventDefault();
+    if (!editing) {
+      setEditing(true);
+      return;
+    }
+    try {
+      const payload = { ...form, gpa: parseFloat(form.gpa) };
+      const { data } = await api.patch(`/students/${id}`, payload);
+      setStudent(data);
+      setForm(data);
+      setEditing(false);
+      fetchAllStudents();
+    } catch (err) {
+      console.error("Error updating student:", err);
+    }
+  };
+
+  const handleCancel = () => {
+    setForm(student);
+    setEditing(false);
+  };
 
   const handleDelete = async () => {
+    if (!window.confirm("Delete this student?")) return;
     try {
       await api.delete(`/students/${id}`);
       fetchAllStudents();
       navigate("/students");
-    } catch (error) {
-      console.error("Error deleting student:", error);
+    } catch (err) {
+      console.error("Error deleting student:", err);
     }
   };
 
-  return (
-    <div className="single-student">
-      <img
-        src={student.imageURL}
-        alt={`${student.firstName} ${student.lastName}`}
-        width={200}
-        height={200}
-      />
-      <h2>
-        {student.firstName} {student.lastName}
-      </h2>
-      <p>Email: {student.email}</p>
-      <p>GPA: {student.gpa.toFixed(2)}</p>
+  if (!form) return <p>Loading…</p>;
 
-      <button className="delete-button" onClick={handleDelete}>
-        {" "}
-        Delete Student{" "}
-      </button>
-      <button className="edit-button"> Edit Student</button>
+  return (
+    <div className="single-student-form-div">
+      <form className="single-student-form" onSubmit={handleEditSave}>
+        <img
+          src={form.imageURL}
+          alt={`${form.firstName} ${form.lastName}`}
+          width={200}
+          height={200}
+        />
+
+        <label>
+          First&nbsp;Name
+          <input
+            name="firstName"
+            value={form.firstName}
+            onChange={handleChange}
+            disabled={!editing}
+          />
+        </label>
+
+        <label>
+          Last&nbsp;Name
+          <input
+            name="lastName"
+            value={form.lastName}
+            onChange={handleChange}
+            disabled={!editing}
+          />
+        </label>
+
+        <label>
+          Email
+          <input
+            name="email"
+            type="email"
+            value={form.email}
+            onChange={handleChange}
+            disabled={!editing}
+          />
+        </label>
+
+        <label>
+          Image URL
+          <input
+            name="imageURL"
+            value={form.imageURL}
+            onChange={handleChange}
+            disabled={!editing}
+          />
+        </label>
+
+        <label>
+          GPA
+          <input
+            name="gpa"
+            type="number"
+            step="0.1"
+            value={form.gpa}
+            onChange={handleChange}
+            disabled={!editing}
+          />
+        </label>
+
+        <label>
+          Campus
+          <select
+            name="campusId"
+            value={form.campusId ?? ""}
+            onChange={handleChange}
+            disabled={!editing}
+          >
+            <option value="" disabled>
+              Select campus…
+            </option>
+            {campusList.map((c) => (
+              <option key={c.id} value={c.id}>
+                {c.name}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        <div style={{ marginTop: "1rem" }}>
+          <button type="submit">{editing ? "Save" : "Edit"}</button>
+
+          {editing && (
+            <button
+              type="button"
+              onClick={handleCancel}
+              style={{ marginLeft: 8 }}
+            >
+              Cancel
+            </button>
+          )}
+
+          {editing && (
+            <button
+              type="button"
+              onClick={handleDelete}
+              style={{ marginLeft: 8, color: "red" }}
+            >
+              Delete Student
+            </button>
+          )}
+
+          <button
+            type="button"
+            style={{ marginLeft: 8 }}
+            onClick={() => navigate("/students")}
+          >
+            Back
+          </button>
+        </div>
+      </form>
     </div>
   );
 };
