@@ -64,13 +64,13 @@ const HomePage = () => {
                 <li>[ ✔ ] see a list of all students in the database</li>
                 <li>[ ✔ ] see an informative message if no students exist</li>
                 <li>
-                  [ *Debbie ] add a new student
+                  [ ✔ ] add a new student
                   <ul>
                     <li>
                       [ *Debbie ] with a validated form displaying real-time error messages
                     </li>
                     <li>
-                      [ *Debbie ] which redirects to the new student's single student view
+                      [ ✔ ] which redirects to the new student's single student view
                     </li>
                   </ul>
                 </li>
