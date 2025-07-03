@@ -5,21 +5,44 @@ import api from "../api/axiosInstance";
 const SingleStudent = () => {
   const { id } = useParams();
   const [student, setStudent] = useState(null);
+  const [form, setForm] = useState({});
 
   useEffect(() => {
     api.get(`/students/${id}`)
-      .then(res => setStudent(res.data))
-      .catch(err => console.error("Failed to load student", err));
+      .then(res => {
+        setStudent(res.data);
+        setForm(res.data);
+      })
+      .catch(err => console.error(err));
   }, [id]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm(prev => ({ ...prev, [name]: value }));
+  };
 
   if (!student) return <p>Loading…</p>;
 
   return (
     <div>
-      <h2>
-        {student.firstName} {student.lastName}
-      </h2>
-      <p>{student.email}</p>
+      <form>
+        <label>
+          First Name
+          <input
+            name="firstName"
+            value={form.firstName || ""}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          Last Name
+          <input
+            name="lastName"
+            value={form.lastName || ""}
+            onChange={handleChange}
+          />
+        </label>
+      </form>
     </div>
   );
 };
