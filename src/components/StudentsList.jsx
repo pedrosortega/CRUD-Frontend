@@ -1,6 +1,6 @@
 import React from "react";
 import StudentCard from "./StudentCard";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 const StudentsList = ({ students = [], fetchAllStudents }) => {
   return (

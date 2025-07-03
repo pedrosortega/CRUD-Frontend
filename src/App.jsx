@@ -80,7 +80,7 @@ const App = () => {
 
           <Route
             path="/students/new"
-            element={<AddStudent/>}
+            element={<AddStudent fetchAllStudents={fetchAllStudents}/>}
           />
 
           <Route
