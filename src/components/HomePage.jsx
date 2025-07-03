@@ -18,15 +18,15 @@ const HomePage = () => {
                [ ✔ ] I can navigate to all campuses view, and
               <ul>
                 <li>[ ✔ ] I see a list of all campuses in the database</li>
-                <li>[ ✔ ] I see an informative message if no campuses exist</li>
+                <li>[ *Pedro ] I see an informative message if no campuses exist</li>
                 <li>
-                  [ ✔ ] I can add a new campus
+                  [ *Flo ] I can add a new campus
                   <ul>
                     <li>
-                      [ ✔ ] with a validated form displaying real-time error messages
+                      [ *Flo ] with a validated form displaying real-time error messages
                     </li>
                     <li>
-                      [ ✔ ] which redirects to the new campus's single campus view
+                      [ *Flo ] which redirects to the new campus's single campus view
                     </li>
                   </ul>
                 </li>
@@ -36,24 +36,24 @@ const HomePage = () => {
               [ ✔ ] I can navigate to a single campus view, and
               <ul>
                 <li>
-                [ ✔ ]   see details about a single campus, including enrolled students
+                [ *Pedro ]   see details about a single campus, including enrolled students
                   (if any)
                 </li>
                 <li>
-                [ ✔ ]   see an informative message if no students are enrolled at that
+                [ *Pedro ]   see an informative message if no students are enrolled at that
                   campus
                 </li>
                 <li>[ ✔ ] navigate to any student's single student view</li>
                 <li>
-                [ ✔ ]  delete the campus (and elegantly handle associated students)
+                [ ** ]  delete the campus (and elegantly handle associated students)
                 </li>
                 <li>
-                  [ ✔ ] edit campus information (including adding/removing students)
+                  [ *Pedro ] edit campus information (including adding/removing students)
                   <ul>
                     <li>
-                     [ ✔ ]  with a validated form displaying real-time error messages
+                     [ * ]  with a validated form displaying real-time error messages
                     </li>
-                    <li>[ ✔ ] which redirects back to the single campus view</li>
+                    <li>[ * ] which redirects back to the single campus view</li>
                   </ul>
                 </li>
               </ul>
@@ -64,13 +64,13 @@ const HomePage = () => {
                 <li>[ ✔ ] see a list of all students in the database</li>
                 <li>[ ✔ ] see an informative message if no students exist</li>
                 <li>
-                  [ ✔ ] add a new student
+                  [ *Debbie ] add a new student
                   <ul>
                     <li>
-                      [ ✔ ] with a validated form displaying real-time error messages
+                      [ *Debbie ] with a validated form displaying real-time error messages
                     </li>
                     <li>
-                      [ ✔ ] which redirects to the new student's single student view
+                      [ *Debbie ] which redirects to the new student's single student view
                     </li>
                   </ul>
                 </li>
@@ -84,11 +84,11 @@ const HomePage = () => {
                   which they are enrolled (if any)
                 </li>
                 <li>
-                  [ ✔ ] see an informative message if the student is not enrolled at a
+                  [ *Mark ] see an informative message if the student is not enrolled at a
                   campus
                 </li>
                 <li>
-                  [ ✔ ] navigate to the single campus view of the student's enrolled
+                  [ *Mark ] navigate to the single campus view of the student's enrolled
                   campus
                 </li>
                 <li>[ ✔ ] delete the student</li>
@@ -96,7 +96,7 @@ const HomePage = () => {
                   [ ✔ ] edit the student's information (including campus enrollment)
                   <ul>
                     <li>
-                      [ ✔ ] with a validated form displaying real-time error messages
+                      [ *Mark ] with a validated form displaying real-time error messages
                     </li>
                     <li>[ ✔ ] which redirects back to the single student view</li>
                   </ul>
