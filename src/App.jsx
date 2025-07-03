@@ -16,6 +16,7 @@ import StudentCard from "./components/StudentCard";
 import SingleStudent from "./components/SingleStudent";
 import NotFound from "./components/NotFound";
 import { BrowserRouter as Router, Routes, Route } from "react-router";
+import AddStudent from "./components/AddStudent";
 
 const App = () => {
   const [students, setStudents] = useState([]);
@@ -77,10 +78,10 @@ const App = () => {
             element={<StudentsList students={students} />}
           />
 
-          {/* <Route
+          <Route
             path="/students/new"
-            element={<StudentForm mode="create" onSuccess={fetchAllStudents} />}
-          /> */}
+            element={<AddStudent/>}
+          />
 
           <Route
             path="/students/:id"
