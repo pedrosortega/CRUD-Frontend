@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
-// import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router";
+import StudentsList from "./StudentsList";
 
-const AddStudent = () => {
+const AddStudent = ({ fetchAllStudents }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [gpa, setGPA] = useState("");
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+  const { id } = useParams();
 
   const handleClear = () => {
     setFirstName("");
@@ -42,6 +44,8 @@ const AddStudent = () => {
       console.log(response.data);
 
       handleClear();
+      fetchAllStudents();
+      navigate("/students");
 
       // navigate("/students");
     } catch (err) {
@@ -94,7 +98,9 @@ const AddStudent = () => {
         />
 
         <button type="submit">Add Student</button>
-        <button type="button" onClick={handleClear}>Clear</button>
+        <button type="button" onClick={handleClear}>
+          Clear
+        </button>
       </form>
     </div>
   );

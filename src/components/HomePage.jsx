@@ -36,14 +36,14 @@ const HomePage = () => {
               [ ✔ ] I can navigate to a single campus view, and
               <ul>
                 <li>
-                [ *Pedro ]   see details about a single campus, including enrolled students
+                [ ✔ ]   see details about a single campus, including enrolled students
                   (if any)
                 </li>
                 <li>
                 [ *Pedro ]   see an informative message if no students are enrolled at that
                   campus
                 </li>
-                <li>[ ✔ ] navigate to any student's single student view</li>
+                <li>[ *Pedro ] navigate to any student's single student view</li>
                 <li>
                 [ ** ]  delete the campus (and elegantly handle associated students)
                 </li>
