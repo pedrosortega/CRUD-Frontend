@@ -8,10 +8,10 @@ import api from "./api/axiosInstance";
 // import HomePage from "./components/HomePage";
 import CampusesList from "./components/CampusesList";
 import CampusCard from "./components/CampusCard";
-// import CampusForm from "./components/CampusForm";
+import CampusForm from "./components/AddCampus";
 import SingleCampus from "./components/SingleCampus";
 import StudentsList from "./components/StudentsList";
-// import StudentForm from "./components/StudentForm";
+import AddCampus from "./components/AddCampus";
 import StudentCard from "./components/StudentCard";
 import SingleStudent from "./components/SingleStudent";
 import NotFound from "./components/NotFound";
@@ -27,7 +27,7 @@ const App = () => {
       console.log("✅ API StudentResponse:", StudentResponse.data);
       setStudents(StudentResponse.data);
     } catch (error) {
-      console.error("Error fetching: ", error);
+      console.error("Error fetching: ", error);s
     }
   }
 
@@ -48,7 +48,6 @@ const App = () => {
 
   return (
     <div>
-      <h1>Campus Listing</h1>
       <NavBar />
       <div className="app">
         {/* Please consider the following routes as a draft and not final */}
@@ -60,6 +59,9 @@ const App = () => {
             path="/campuses"
             element={<CampusesList campuses={campuses} />}
           />
+          <Route
+          path = "/add-campus"
+          element={<AddCampus/>}/>
 
           {/* <Route
             path="/campuses/new"
