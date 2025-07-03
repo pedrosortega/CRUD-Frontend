@@ -13,4 +13,36 @@ BBD0FF */
   position: sticky;
   top: 0;
   z-index: 100;
+  background: linear-gradient(90deg, #FFD6FF 0%, #E7C6FF 100%);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 8px rgba(200, 182, 255, 0.15);
+}
+
+.navbar a {
+  color: #6c3483;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin: 0 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  background: #B8C0FF;
+  color: #fff;
+}
+
+#home-button {
+  align-self: start;
+  background: #BBD0FF;
+  color: #6c3483;
+}
+
+#home-button:hover,
+#home-button.active {
+  background: #C8B6FF;
+  color: #fff;
 }
