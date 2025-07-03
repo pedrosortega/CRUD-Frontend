@@ -1,6 +1,6 @@
 import React from "react";
 import api from "../api/axiosInstance";
-
+import { Link } from "react-router";
 const CampusCard = ({ campus, fetchAllCampuses }) => {
   const Delete = async () => {
     try {
@@ -19,7 +19,9 @@ const CampusCard = ({ campus, fetchAllCampuses }) => {
         height={125}
       />
       <div className="campus-info">
-        <h3>{campus.name}</h3>
+        <h3>
+          <Link to={`/campuses/${campus.id}`}>{campus.name} </Link>
+        </h3>
       </div>
     </div>
   );
