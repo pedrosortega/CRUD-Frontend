@@ -28,31 +28,26 @@ const SingleStudent = ({ fetchAllStudents }) => {
       setEditing(true);
       return;
     }
-    const payload = { ...form, gpa: parseFloat(form.gpa) };
-    try {
-      const { data } = await api.patch(`/students/${id}`, payload);
-      setStudent(data);
-      setForm(data);
-      setEditing(false);
-      fetchAllStudents();
-    } catch (err) {
-      console.error(err);
-    }
+  };
+
+  const handleCancel = () => {
+    setForm(student);
+    setEditing(false);
   };
 
   if (!form) return <p>Loading…</p>;
 
   return (
     <form onSubmit={handleEditSave}>
-      <input
-        name="firstName"
-        value={form.firstName}
-        onChange={handleChange}
-        disabled={!editing}
-      />
       <button type="submit">{editing ? "Save" : "Edit"}</button>
+      {editing && (
+        <button type="button" onClick={handleCancel}>
+          Cancel
+        </button>
+      )}
     </form>
   );
 };
 
 export default SingleStudent;
+
