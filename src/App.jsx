@@ -9,7 +9,7 @@ import api from "./api/axiosInstance";
 import CampusesList from "./components/CampusesList";
 import CampusCard from "./components/CampusCard";
 // import CampusForm from "./components/CampusForm";
-// import SingleCampus from "./components/SingleCampus";
+import SingleCampus from "./components/SingleCampus";
 import StudentsList from "./components/StudentsList";
 // import StudentForm from "./components/StudentForm";
 import StudentCard from "./components/StudentCard";
@@ -71,7 +71,7 @@ const App = () => {
             element={<CampusForm mode="edit" onSuccess={fetchAllCampuses} />}
           /> */}
 
-          {/* <Route path="/campuses/:id" element={<SingleCampus />} /> */}
+          <Route path="/campuses/:id" element={<SingleCampus />} />
 
           <Route
             path="/students"

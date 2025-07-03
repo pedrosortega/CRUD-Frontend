@@ -44,7 +44,10 @@ const SingleStudent = ({ fetchAllStudents }) => {
       <p>Email: {student.email}</p>
       <p>GPA: {student.gpa.toFixed(2)}</p>
 
-      <button className="delete-button" onClick={handleDelete}> Delete Student </button>
+      <button className="delete-button" onClick={handleDelete}>
+        {" "}
+        Delete Student{" "}
+      </button>
       <button className="edit-button"> Edit Student</button>
     </div>
   );
