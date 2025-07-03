@@ -76,11 +76,11 @@ const App = () => {
             path="/students"
             element={<StudentsList students={students} />}
           />
-
-          {/* <Route
+          
+          <Route
             path="/students/new"
-            element={<StudentForm mode="create" onSuccess={fetchAllStudents} />}
-          /> */}
+            element={<AddStudent/>}
+          />
 
           <Route
             path="/students/:id"
