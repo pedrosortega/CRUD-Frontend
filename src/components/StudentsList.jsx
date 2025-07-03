@@ -1,12 +1,13 @@
 import React from "react";
 import StudentCard from "./StudentCard";
-import { Link } from "react-router";
-import AddStudent from "./AddStudent";
+import { Link } from "react-router-dom";
 
 const StudentsList = ({ students = [], fetchAllStudents }) => {
   return (
     <div>
-      <Link to ="/students/new"><button>Add Student</button></Link>
+      <Link to="/students/new">
+        <button>Add Student</button>
+      </Link>
       {students.map((stu) => (
         <StudentCard
           key={stu.user_id}

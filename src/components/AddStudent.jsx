@@ -9,8 +9,7 @@ const AddStudent = () => {
   const [email, setEmail] = useState("");
   const [gpa, setGPA] = useState("");
 
-//   const navigate = useNavigate();
-
+  //   const navigate = useNavigate();
   const handleClear = () => {
     setfirstName("");
     setLastName("");
@@ -41,16 +40,19 @@ const AddStudent = () => {
     console.log(e.target.email.value);
     console.log(e.target.gpa.value);
 
-    const formData = new FormData(); 
-    formData.append("firstName", firstName); 
+    const formData = new FormData();
+    formData.append("firstName", firstName);
     formData.append("lastName", lastName);
     formData.append("email", email);
     formData.append("gpa", gpa);
 
     try {
-      const response = await axios.post("https://localhost:8080/api/students", formData);
+      const response = await axios.post(
+        "https://localhost:8080/api/students",
+        formData
+      );
       console.log(response.data);
-    //   navigate("/students");
+      //   navigate("/students");
 
       handleClear();
     } catch (err) {
