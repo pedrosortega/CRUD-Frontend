@@ -10,7 +10,7 @@ const CampusesList = ({ campuses = [], fetchAllCampuses }) => {
       <Link to="/add-campus"><button className="campus-list-button">Add Campus</button></Link>
       {campuses.map((c) => (
         <CampusCard
-          key={c.imageUrl}
+          key={c.id}
           campus={c}
           fetchAllCampuses={fetchAllCampuses}
         />
