@@ -5,6 +5,7 @@ import api from "../api/axiosInstance";
 const SingleStudent = ({ fetchAllStudents }) => {
   const { id } = useParams();
   const [student, setStudent] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchStudent = async () => {
@@ -44,7 +45,10 @@ const SingleStudent = ({ fetchAllStudents }) => {
       <p>Email: {student.email}</p>
       <p>GPA: {student.gpa.toFixed(2)}</p>
 
-      <button className="delete-button" onClick={handleDelete}> Delete Student </button>
+      <button className="delete-button" onClick={handleDelete}>
+        {" "}
+        Delete Student{" "}
+      </button>
       <button className="edit-button"> Edit Student</button>
     </div>
   );

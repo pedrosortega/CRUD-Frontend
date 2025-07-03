@@ -14,7 +14,7 @@ const StudentCard = ({ student, fetchAllStudents }) => {
 
       <div className="student-info">
         <h3>
-          <Link to={`/students/${student.user_id}`}>
+          <Link to={`/students/${student.id}`}>
             {student.firstName} {student.lastName}
           </Link>
         </h3>
