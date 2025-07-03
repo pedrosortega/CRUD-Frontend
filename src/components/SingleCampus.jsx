@@ -8,39 +8,50 @@ const SingleCampus = () => {
   const params = useParams();
   const id = params.id;
 
-  //manage current states
+  //manage current campus state
   const [currentCampus, setCurrentCampus] = useState({});
+
+  //redirect after deleting campus
   const navigate = useNavigate();
   useEffect(() => {
-    const fetchCampus = async () => {
+    const fetchCampusWithStudents = async () => {
       try {
+        //manage current campus
         const response = await api.get(`/campuses/${id}`);
         setCurrentCampus(response.data);
-        console.log(response.data);
       } catch (error) {
         console.error("Error fetching campus: ", error);
       }
     };
-    fetchCampus();
+    fetchCampusWithStudents();
   }, [id]);
 
-  // const handleDelete = async () => {
-  //   try {
-  //     await api.delete(`/campuses/${id}`);
-  //     fetchAllCampuses();
-  //     navigate("/campuses");
-  //   } catch (error) {
-  //     console.error("Error deleting campus:", error);
-  //   }
-  // };
+  const handleDelete = async () => {
+    try {
+      await api.delete(`/campuses/${id}`);
+      navigate("/campuses");
+      fetchAllCampuses();
+    } catch (error) {
+      console.error("Error deleting campus:", error);
+    }
+  };
 
   return (
     <div>
       <img src={currentCampus.imageURL} alt={currentCampus.name} />
       <h3>{currentCampus.description}</h3>
       <h3>{currentCampus.address}</h3>
-      <button>Delete Campus</button>
+      <button onClick={handleDelete}>Delete Campus</button>
       <button>Edit Campus</button>
+
+      <div>
+        {currentCampus.students &&
+          currentCampus.students.map((stu) => (
+            <h3 key={stu.id}>
+              {stu.firstName},{stu.lastName}
+            </h3>
+          ))}
+      </div>
     </div>
   );
 };
