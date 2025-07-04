@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import CampusCard from "./CampusCard";
 import api from "../api/axiosInstance";
-
+import { Link } from "react-router";
 const SingleCampus = () => {
   const params = useParams();
   const id = params.id;
@@ -35,7 +35,7 @@ const SingleCampus = () => {
       console.error("Error deleting campus:", error);
     }
   };
-
+  if (!currentCampus.students) return <h3>No students on this campus</h3>;
   return (
     <div>
       <img src={currentCampus.imageURL} alt={currentCampus.name} />
@@ -47,9 +47,11 @@ const SingleCampus = () => {
       <div>
         {currentCampus.students &&
           currentCampus.students.map((stu) => (
-            <h3 key={stu.id}>
-              {stu.firstName},{stu.lastName}
-            </h3>
+            <Link to={`/students/${id}`}>
+              <h3 key={stu.id}>
+                {stu.firstName},{stu.lastName}
+              </h3>
+            </Link>
           ))}
       </div>
     </div>
