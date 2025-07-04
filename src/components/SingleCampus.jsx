@@ -4,12 +4,15 @@ import { useNavigate, useParams } from "react-router";
 import CampusCard from "./CampusCard";
 import api from "../api/axiosInstance";
 import { Link } from "react-router";
-const SingleCampus = () => {
+import StudentCard from "./StudentCard";
+
+const SingleCampus = (fetchAllStudents) => {
   const params = useParams();
   const id = params.id;
 
   //manage current campus state
   const [currentCampus, setCurrentCampus] = useState({});
+  console.log('this is current campus', currentCampus)
 
   //redirect after deleting campus
   const navigate = useNavigate();
@@ -35,9 +38,10 @@ const SingleCampus = () => {
       console.error("Error deleting campus:", error);
     }
   };
-  // if (!currentCampus.students) return <h3>No students on this campus</h3>; /////  Bug!
+  if (!currentCampus.students) return <h3>No students on this campus</h3>; /////  Bug!
   return (
-    <div>
+    <div className="single-campus-container">
+      <h1>{currentCampus.name}</h1>
       <img src={currentCampus.imageURL} alt={currentCampus.name} />
       <h3>{currentCampus.description}</h3>
       <h3>{currentCampus.address}</h3>
@@ -45,12 +49,14 @@ const SingleCampus = () => {
       <Link to={`/campuses/${id}/edit`}><button>Edit Campus</button></Link>
 
       <div>
+        <h3 className="single-campus-student-header">Students on Campus</h3>
         {currentCampus.students &&
           currentCampus.students.map((stu) => (
             <Link to={`/students/${id}`}>
-              <h3 key={stu.id}>
-                {stu.firstName},{stu.lastName}
-              </h3>
+              <StudentCard
+              key={stu.id}
+              student={stu}
+          fetchAllStudents={fetchAllStudents}/>
             </Link>
           ))}
       </div>

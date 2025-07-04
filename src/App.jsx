@@ -75,7 +75,7 @@ const App = () => {
             element={<CampusForm mode="edit" onSuccess={fetchAllCampuses} />}
           /> */}
 
-          <Route path="/campuses/:id" element={<SingleCampus />} />
+          <Route path="/campuses/:id" element={<SingleCampus fetchAllStudents = {fetchAllStudents}/>} />
           <Route path="/campuses/:id/edit" element={<EditCampus/>}/>
 
           <Route
