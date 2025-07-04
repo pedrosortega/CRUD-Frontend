@@ -1,10 +1,12 @@
 import React from "react";
 import StudentCard from "./StudentCard";
 import { Link } from "react-router";
+import "./style/StudentList.css"
+
 
 const StudentsList = ({ students = [], fetchAllStudents }) => {
   return (
-    <div>
+    <div className="student-list-div">
       <Link to="/students/new">
         <button>Add Student</button>
       </Link>
