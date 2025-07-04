@@ -5,6 +5,7 @@ import CampusCard from "./CampusCard";
 import api from "../api/axiosInstance";
 import { Link } from "react-router";
 import StudentCard from "./StudentCard";
+import './SingleCampus.css';
 
 const SingleCampus = (fetchAllStudents) => {
   const params = useParams();
@@ -41,9 +42,12 @@ const SingleCampus = (fetchAllStudents) => {
   if (!currentCampus.students) return <h3>No students on this campus</h3>; /////  Bug!
   return (
     <div className="single-campus-container">
-      <h1>{currentCampus.name}</h1>
-      <img src={currentCampus.imageURL} alt={currentCampus.name} />
-      <h3>{currentCampus.description}</h3>
+     
+      <section className="single-campus-top-grid">
+        <img src={currentCampus.imageURL} alt={currentCampus.name} />
+         <h1>{currentCampus.name}</h1>
+        <h3>{currentCampus.description}</h3>
+      </section>
       <h3>{currentCampus.address}</h3>
       <button onClick={handleDelete}>Delete Campus</button>
       <Link to={`/campuses/${id}/edit`}>
