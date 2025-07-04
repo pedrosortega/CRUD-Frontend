@@ -17,6 +17,7 @@ import SingleStudent from "./components/SingleStudent";
 import NotFound from "./components/NotFound";
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import AddStudent from "./components/AddStudent";
+import EditCampus from "./EditCampus";
 
 const App = () => {
   const [students, setStudents] = useState([]);
@@ -75,6 +76,7 @@ const App = () => {
           /> */}
 
           <Route path="/campuses/:id" element={<SingleCampus />} />
+          <Route path="/campuses/:id/edit" element={<EditCampus/>}/>
 
           <Route
             path="/students"

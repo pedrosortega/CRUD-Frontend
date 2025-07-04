@@ -35,14 +35,14 @@ const SingleCampus = () => {
       console.error("Error deleting campus:", error);
     }
   };
-  if (!currentCampus.students) return <h3>No students on this campus</h3>;
+  // if (!currentCampus.students) return <h3>No students on this campus</h3>; /////  Bug!
   return (
     <div>
       <img src={currentCampus.imageURL} alt={currentCampus.name} />
       <h3>{currentCampus.description}</h3>
       <h3>{currentCampus.address}</h3>
       <button onClick={handleDelete}>Delete Campus</button>
-      <button>Edit Campus</button>
+      <Link to={`/campuses/${id}/edit`}><button>Edit Campus</button></Link>
 
       <div>
         {currentCampus.students &&
