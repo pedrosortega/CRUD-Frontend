@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router";
 import { Link } from "react-router";
 import api from "../api/axiosInstance";
+import "./style/SingleStudent.css"
+
 
 const SingleStudent = ({ fetchAllStudents }) => {
   const { id } = useParams();
