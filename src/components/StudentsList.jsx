@@ -12,7 +12,7 @@ const StudentsList = ({ students = [], fetchAllStudents }) => {
       </Link>
       {students.map((stu) => (
         <StudentCard
-          key={stu.user_id}
+          key={stu.id}
           student={stu}
           fetchAllStudents={fetchAllStudents}
         />
