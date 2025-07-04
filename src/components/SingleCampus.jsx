@@ -12,7 +12,7 @@ const SingleCampus = (fetchAllStudents) => {
 
   //manage current campus state
   const [currentCampus, setCurrentCampus] = useState({});
-  console.log('this is current campus', currentCampus)
+  console.log("this is current campus", currentCampus);
 
   //redirect after deleting campus
   const navigate = useNavigate();
@@ -46,7 +46,9 @@ const SingleCampus = (fetchAllStudents) => {
       <h3>{currentCampus.description}</h3>
       <h3>{currentCampus.address}</h3>
       <button onClick={handleDelete}>Delete Campus</button>
-      <Link to={`/campuses/${id}/edit`}><button>Edit Campus</button></Link>
+      <Link to={`/campuses/${id}/edit`}>
+        <button>Edit Campus</button>
+      </Link>
 
       <div>
         <h3 className="single-campus-student-header">Students on Campus</h3>
@@ -54,9 +56,10 @@ const SingleCampus = (fetchAllStudents) => {
           currentCampus.students.map((stu) => (
             <Link to={`/students/${id}`}>
               <StudentCard
-              key={stu.id}
-              student={stu}
-          fetchAllStudents={fetchAllStudents}/>
+                key={stu.id}
+                student={stu}
+                fetchAllStudents={fetchAllStudents}
+              />
             </Link>
           ))}
       </div>
