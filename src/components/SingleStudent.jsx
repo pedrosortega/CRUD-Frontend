@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router";
 import { Link } from "react-router";
 import api from "../api/axiosInstance";
-import "./style/SingleStudent.css"
-
+import "./style/SingleStudent.css";
 
 const SingleStudent = ({ fetchAllStudents }) => {
   const { id } = useParams();
@@ -76,10 +75,7 @@ const SingleStudent = ({ fetchAllStudents }) => {
     <div className="single-student-page">
       <div className="single-student-form-div">
         <form className="single-student-form" onSubmit={handleEditSave}>
-          <img
-            src={form.imageURL}
-            alt={`${form.firstName} ${form.lastName}`}
-          />
+          <img src={form.imageURL} alt={`${form.firstName} ${form.lastName}`} />
 
           <label>
             First&nbsp;Name
@@ -176,12 +172,20 @@ const SingleStudent = ({ fetchAllStudents }) => {
       </div>
 
       <div className="associated-campus">
-        <h3>Associated Campus</h3>
-        <Link to={`/campuses/${campusObj.id}`}>
-          <img src={campusObj.imageURL} alt={campusObj.name} />
-          <p>{campusObj.name}</p>
-        </Link>
-          <p>{campusObj.address}</p>
+        {campusObj ? (
+          <>
+            <h3>Associated Campus</h3>
+            <Link to={`/campuses/${campusObj.id}`}>
+              <img src={campusObj.imageURL} alt={campusObj.name} />
+              <p>{campusObj.name}</p>
+            </Link>
+            <p>{campusObj.address}</p>
+          </>
+        ) : (
+          <p className="no-campus-message">
+            This student isn't enrolled at any campus.
+          </p>
+        )}
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import api from "../api/axiosInstance";
 import { Link } from "react-router";
+import "./style/StudentCard.css"
 
 const StudentCard = ({ student, fetchAllStudents }) => {
   return (
@@ -8,8 +9,6 @@ const StudentCard = ({ student, fetchAllStudents }) => {
       <img
         src={student.imageURL}
         alt={`image of ${student.firstName} ${student.lastName}`}
-        width={150}
-        height={150}
       />
 
       <div className="student-info">

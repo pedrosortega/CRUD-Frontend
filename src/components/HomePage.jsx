@@ -88,7 +88,7 @@ const HomePage = () => {
                   campus
                 </li>
                 <li>
-                  [ *Mark ] navigate to the single campus view of the student's enrolled
+                  [ ✔ ] navigate to the single campus view of the student's enrolled
                   campus
                 </li>
                 <li>[ ✔ ] delete the student</li>
