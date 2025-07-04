@@ -5,3 +5,39 @@ E7C6FF
 C8B8FF
 B8C0FF
 BBD0FF */
+
+.student-card {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  font-family: sans-serif;
+}
+
+.student-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.student-info h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.student-info a {
+  color: #333333;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.student-info a:hover {
+  color: #666666;
+  text-decoration: underline;
+}

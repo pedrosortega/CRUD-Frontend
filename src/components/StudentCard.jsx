@@ -18,8 +18,6 @@ const StudentCard = ({ student, fetchAllStudents }) => {
           </Link>
         </h3>
 
-        <p>{student.email}</p>
-        <p>GPA: {student.gpa.toFixed(2)}</p>
       </div>
     </div>
   );
