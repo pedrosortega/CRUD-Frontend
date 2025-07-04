@@ -3,6 +3,7 @@ import StudentCard from "./StudentCard";
 import { Link } from "react-router";
 import "./style/StudentList.css"
 
+
 const StudentsList = ({ students = [], fetchAllStudents }) => {
   return (
     <div className="student-list-div">
@@ -17,7 +18,7 @@ const StudentsList = ({ students = [], fetchAllStudents }) => {
         />
       ))}
     </div>
-  )
+  );
 };
 
 export default StudentsList;
