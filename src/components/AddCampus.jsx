@@ -11,7 +11,7 @@ const formValues = {
   address: "",
 };
 
-const AddCampus = ({ fetchAllCampuses }) => {
+const AddCampus = ({ }) => {
   const navigate = useNavigate();
 
   const [form, setForm] = useState(formValues);
@@ -21,7 +21,6 @@ const AddCampus = ({ fetchAllCampuses }) => {
     event.preventDefault();
     try {
       await axios.post("http://localhost:8080/api/campuses", form);
-      fetchAllCampuses();
       navigate("/campuses");
     } catch (error) {
       console.error("Error adding task:", error);
