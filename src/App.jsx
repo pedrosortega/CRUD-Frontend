@@ -5,7 +5,7 @@ import axios from "axios";
 import "./AppStyles.css";
 import NavBar from "./components/NavBar";
 import api from "./api/axiosInstance";
-// import HomePage from "./components/HomePage";
+import HomePage from "./components/HomePage";
 import CampusesList from "./components/CampusesList";
 import CampusCard from "./components/CampusCard";
 import CampusForm from "./components/AddCampus";
@@ -16,6 +16,7 @@ import StudentCard from "./components/StudentCard";
 import SingleStudent from "./components/SingleStudent";
 import NotFound from "./components/NotFound";
 import { BrowserRouter as Router, Routes, Route } from "react-router";
+import AddStudent from "./components/AddStudent";
 
 const App = () => {
   const [students, setStudents] = useState([]);
@@ -53,7 +54,7 @@ const App = () => {
         {/* Please consider the following routes as a draft and not final */}
         {/* I reviewed the assignment sheet and thought about the necessary components */}
         <Routes>
-          {/* <Route path="/" element={<HomePage />} /> */}
+          <Route path="/" element={<HomePage />} />
 
           <Route
             path="/campuses"
@@ -80,10 +81,10 @@ const App = () => {
             element={<StudentsList students={students} />}
           />
 
-          {/* <Route
+          <Route
             path="/students/new"
-            element={<StudentForm mode="create" onSuccess={fetchAllStudents} />}
-          /> */}
+            element={<AddStudent fetchAllStudents={fetchAllStudents}/>}
+          />
 
           <Route
             path="/students/:id"
