@@ -1,0 +1,97 @@
+/* Color palette:
+https://coolors.co/palette/ffd6ff-e7c6ff-c8b6ff-b8c0ff-bbd0ff
+FFD6FF
+E7C6FF
+C8B8FF
+B8C0FF
+BBD0FF */
+
+.single-student-page {
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: sans-serif;
+}
+
+.single-student-form-div {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.single-student-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.single-student-form img {
+    grid-column: 1 / -1;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 2rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.single-student-form label {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+}
+
+.single-student-form input,
+select {
+    margin-top: 0.25rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+.single-student-form div {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.single-student-form button {
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: transform 0.1s ease-in-out;
+    background: white;
+    color: black;
+}
+
+.single-student-form button:hover {
+    transform: translateY(-2px);
+}
+
+.associated-campus {
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: left;
+    text-decoration: none;
+    font-size: 0.95rem;
+    overflow: auto;
+}
+
+.associated-campus img {
+    float: left;
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+    margin: 0.5rem 0.5rem 0.5rem 0rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.associated-campus a, p {
+  display: block;
+  margin: 0.5rem 0.5rem 0.5rem 0.01rem;
+  padding-top: 0.25rem;
+}
+
+.no-campus-message {
+    font-style: italic;
+}
