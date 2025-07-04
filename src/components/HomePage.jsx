@@ -84,7 +84,7 @@ const HomePage = () => {
                   which they are enrolled (if any)
                 </li>
                 <li>
-                  [ *Mark ] see an informative message if the student is not enrolled at a
+                  [ ✔ ] see an informative message if the student is not enrolled at a
                   campus
                 </li>
                 <li>
