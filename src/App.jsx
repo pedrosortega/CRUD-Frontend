@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import axios from "axios";
 import "./AppStyles.css";
-import NavBar from "./components/NavBar";
 import api from "./api/axiosInstance";
+import NavBar from "./components/NavBar";
 import HomePage from "./components/HomePage";
 import CampusesList from "./components/CampusesList";
 import CampusCard from "./components/CampusCard";
@@ -15,9 +15,9 @@ import AddCampus from "./components/AddCampus";
 import StudentCard from "./components/StudentCard";
 import SingleStudent from "./components/SingleStudent";
 import NotFound from "./components/NotFound";
-import { BrowserRouter as Router, Routes, Route } from "react-router";
 import AddStudent from "./components/AddStudent";
 import EditCampus from "./EditCampus";
+import { BrowserRouter as Router, Routes, Route } from "react-router";
 
 const App = () => {
   const [students, setStudents] = useState([]);
@@ -29,7 +29,8 @@ const App = () => {
       console.log("✅ API StudentResponse:", StudentResponse.data);
       setStudents(StudentResponse.data);
     } catch (error) {
-      console.error("Error fetching: ", error);s
+      console.error("Error fetching: ", error);
+      s;
     }
   }
 
@@ -49,11 +50,9 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <NavBar />
       <div className="app">
-        {/* Please consider the following routes as a draft and not final */}
-        {/* I reviewed the assignment sheet and thought about the necessary components */}
         <Routes>
           <Route path="/" element={<HomePage />} />
 
@@ -62,21 +61,18 @@ const App = () => {
             element={<CampusesList campuses={campuses} />}
           />
           <Route
-          path = "/add-campus"
-          element={<AddCampus fetchAllCampuses = {fetchAllCampuses}/>}/>
+            path="/add-campus"
+            element={<AddCampus fetchAllCampuses={fetchAllCampuses} />}
+          />
 
-          {/* <Route
-            path="/campuses/new"
-            element={<CampusForm mode="create" onSuccess={fetchAllCampuses} />}
-          /> */}
-
-          {/* <Route
+          <Route
+            path="/campuses/:id"
+            element={<SingleCampus fetchAllStudents={fetchAllStudents} />}
+          />
+          <Route
             path="/campuses/:id/edit"
-            element={<CampusForm mode="edit" onSuccess={fetchAllCampuses} />}
-          /> */}
-
-          <Route path="/campuses/:id" element={<SingleCampus fetchAllStudents = {fetchAllStudents}/>} />
-          <Route path="/campuses/:id/edit" element={<EditCampus fetchAllCampuses = {fetchAllCampuses}/>}/>
+            element={<EditCampus fetchAllCampuses={fetchAllCampuses} />}
+          />
 
           <Route
             path="/students"
@@ -85,7 +81,7 @@ const App = () => {
 
           <Route
             path="/students/new"
-            element={<AddStudent fetchAllStudents={fetchAllStudents}/>}
+            element={<AddStudent fetchAllStudents={fetchAllStudents} />}
           />
 
           <Route
@@ -96,14 +92,10 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
-    </div>
+    </>
   );
 };
 
-// We're using React Router to handle the navigation between pages.
-// It's important that the Router is at the top level of our app,
-// and that we wrap our entire app in it. With this in place, we can
-// declare Routes, Links, and use useful hooks like useNavigate.
 const root = createRoot(document.getElementById("root"));
 root.render(
   <Router>

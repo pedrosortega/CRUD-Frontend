@@ -1,5 +1,6 @@
 import React from "react";
-import "./style/HomePage.css"
+import lavenderLove from "./img/LavenderLove.png";
+import "./style/HomePage.css";
 
 const HomePage = () => {
   return (
@@ -11,22 +12,27 @@ const HomePage = () => {
         <ul>
           <ul>
             <li>
-              [ ✔ ] As a user, I will land on a visually pleasing homepage by default, which allows
-              navigation to view all campuses and all students
+              [ ✔ ] As a user, I will land on a visually pleasing homepage by
+              default, which allows navigation to view all campuses and all
+              students
             </li>
             <li>
-               [ ✔ ] I can navigate to all campuses view, and
+              [ ✔ ] I can navigate to all campuses view, and
               <ul>
                 <li>[ ✔ ] I see a list of all campuses in the database</li>
-                <li>[ *Pedro ] I see an informative message if no campuses exist</li>
+                <li>
+                  [ *Pedro ] I see an informative message if no campuses exist
+                </li>
                 <li>
                   [ *Flo ] I can add a new campus
                   <ul>
                     <li>
-                      [ *Flo ] with a validated form displaying real-time error messages
+                      [ *Flo ] with a validated form displaying real-time error
+                      messages
                     </li>
                     <li>
-                      [ *Flo ] which redirects to the new campus's single campus view
+                      [ *Flo ] which redirects to the new campus's single campus
+                      view
                     </li>
                   </ul>
                 </li>
@@ -36,24 +42,31 @@ const HomePage = () => {
               [ ✔ ] I can navigate to a single campus view, and
               <ul>
                 <li>
-                [ ✔ ]   see details about a single campus, including enrolled students
-                  (if any)
+                  [ ✔ ] see details about a single campus, including enrolled
+                  students (if any)
                 </li>
                 <li>
-                [ *Pedro ]   see an informative message if no students are enrolled at that
-                  campus
-                </li>
-                <li>[ *Pedro ] navigate to any student's single student view</li>
-                <li>
-                [ ** ]  delete the campus (and elegantly handle associated students)
+                  [ *Pedro ] see an informative message if no students are
+                  enrolled at that campus
                 </li>
                 <li>
-                  [ *Pedro ] edit campus information (including adding/removing students)
+                  [ *Pedro ] navigate to any student's single student view
+                </li>
+                <li>
+                  [ ** ] delete the campus (and elegantly handle associated
+                  students)
+                </li>
+                <li>
+                  [ *Pedro ] edit campus information (including adding/removing
+                  students)
                   <ul>
                     <li>
-                     [ * ]  with a validated form displaying real-time error messages
+                      [ * ] with a validated form displaying real-time error
+                      messages
                     </li>
-                    <li>[ * ] which redirects back to the single campus view</li>
+                    <li>
+                      [ * ] which redirects back to the single campus view
+                    </li>
                   </ul>
                 </li>
               </ul>
@@ -67,10 +80,12 @@ const HomePage = () => {
                   [ ✔ ] add a new student
                   <ul>
                     <li>
-                      [ *Debbie ] with a validated form displaying real-time error messages
+                      [ *Debbie ] with a validated form displaying real-time
+                      error messages
                     </li>
                     <li>
-                      [ ✔ ] which redirects to the new student's single student view
+                      [ ✔ ] which redirects to the new student's single student
+                      view
                     </li>
                   </ul>
                 </li>
@@ -80,25 +95,29 @@ const HomePage = () => {
               [ ✔ ] I can navigate to a single student view, and
               <ul>
                 <li>
-                  [ ✔ ] see details about a single student, including the campus at
-                  which they are enrolled (if any)
+                  [ ✔ ] see details about a single student, including the campus
+                  at which they are enrolled (if any)
                 </li>
                 <li>
-                  [ ✔ ] see an informative message if the student is not enrolled at a
-                  campus
+                  [ ✔ ] see an informative message if the student is not
+                  enrolled at a campus
                 </li>
                 <li>
-                  [ ✔ ] navigate to the single campus view of the student's enrolled
-                  campus
+                  [ ✔ ] navigate to the single campus view of the student's
+                  enrolled campus
                 </li>
                 <li>[ ✔ ] delete the student</li>
                 <li>
-                  [ ✔ ] edit the student's information (including campus enrollment)
+                  [ ✔ ] edit the student's information (including campus
+                  enrollment)
                   <ul>
                     <li>
-                      [ *Mark ] with a validated form displaying real-time error messages
+                      [ *Mark ] with a validated form displaying real-time error
+                      messages
                     </li>
-                    <li>[ ✔ ] which redirects back to the single student view</li>
+                    <li>
+                      [ ✔ ] which redirects back to the single student view
+                    </li>
                   </ul>
                 </li>
               </ul>
@@ -106,6 +125,8 @@ const HomePage = () => {
           </ul>
         </ul>
       </details>
+
+      <img src={lavenderLove} alt="Color Pallete"></img>
 
       <details className="all-campuses-and-students">
         <summary>Technical Requirements 1: All Campuses and Students</summary>
@@ -209,7 +230,9 @@ const HomePage = () => {
       </details>
 
       <details className="single-student-and-single-campus">
-        <summary>Technical Requirements 2: Single Student and Single Campus</summary>
+        <summary>
+          Technical Requirements 2: Single Student and Single Campus
+        </summary>
         <ul>
           <ul>
             <li>
@@ -281,7 +304,9 @@ const HomePage = () => {
       </details>
 
       <details className="adding-a-campus-and-adding-a-student">
-        <summary>Technical Requirements 3: Adding a Campus and Adding a Student</summary>
+        <summary>
+          Technical Requirements 3: Adding a Campus and Adding a Student
+        </summary>
         <ul>
           <p>Adding a Campus and Adding a Student</p>
           <ul>
@@ -346,7 +371,9 @@ const HomePage = () => {
       </details>
 
       <details className="removing-a-campus-and-removing-a-student">
-        <summary>Technical Requirements 4: Removing a Campus and Removing a Student</summary>
+        <summary>
+          Technical Requirements 4: Removing a Campus and Removing a Student
+        </summary>
         <ul>
           <ul>
             <li>

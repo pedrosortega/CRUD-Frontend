@@ -21,7 +21,9 @@ BBD0FF */
   background: #fff;
   transition: border-color 0.3s ease;
 }
-
+img {
+  width: 1200px;
+}
 .HomePage summary {
   cursor: pointer;
   padding: 0.75rem 1rem;
