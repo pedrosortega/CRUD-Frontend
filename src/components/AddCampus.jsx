@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import "./AddCampus.css";
@@ -11,17 +11,16 @@ const formValues = {
   address: "",
 };
 
-const AddCampus = ({ fetchAllCampuses }) => {
+const AddCampus = ({ }) => {
   const navigate = useNavigate();
 
   const [form, setForm] = useState(formValues);
-  console.log("form state-->", form);
+  // console.log("form state-->", form);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       await axios.post("http://localhost:8080/api/campuses", form);
-      fetchAllCampuses();
       navigate("/campuses");
     } catch (error) {
       console.error("Error adding task:", error);

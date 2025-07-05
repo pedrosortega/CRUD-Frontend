@@ -17,6 +17,7 @@ import SingleStudent from "./components/SingleStudent";
 import NotFound from "./components/NotFound";
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import AddStudent from "./components/AddStudent";
+import EditCampus from "./EditCampus";
 
 const App = () => {
   const [students, setStudents] = useState([]);
@@ -74,7 +75,8 @@ const App = () => {
             element={<CampusForm mode="edit" onSuccess={fetchAllCampuses} />}
           /> */}
 
-          <Route path="/campuses/:id" element={<SingleCampus />} />
+          <Route path="/campuses/:id" element={<SingleCampus fetchAllStudents = {fetchAllStudents}/>} />
+          <Route path="/campuses/:id/edit" element={<EditCampus fetchAllCampuses = {fetchAllCampuses}/>}/>
 
           <Route
             path="/students"
