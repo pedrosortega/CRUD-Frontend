@@ -12,10 +12,13 @@ const defaultForm = {
   address: "",
 };
 
+
 const EditCampus = () => {
   const params = useParams();
   const id = params.id;
   const navigate = useNavigate();
+
+
 
   const [form, setForm] = useState(defaultForm);
   //   const [campus, setCampus] = useState("");
@@ -23,6 +26,8 @@ const EditCampus = () => {
   console.log("this is form-->", form);
   //   console.log("this is campus-->", campus);
   console.log("this is students--> ", students);
+
+
 
   useEffect(() => {
     const fetchCampusByID = async () => {
@@ -36,6 +41,8 @@ const EditCampus = () => {
     fetchCampusByID();
   }, [id]);
 
+
+
   useEffect(() => {
     const fetchAllStudents = async () => {
       try {
@@ -48,6 +55,8 @@ const EditCampus = () => {
     fetchAllStudents();
   }, []);
 
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -58,6 +67,8 @@ const EditCampus = () => {
       console.log("Error Editing Campus", error);
     }
   };
+
+
 
   return (
     <main className="edit-campus-container">
@@ -108,12 +119,20 @@ const EditCampus = () => {
         <button>Save Changes</button>
       </form>
 
+
+
       <section className="edit-campus-add-student-container">
           <select>
             <option>Select Student...</option>
+            {students.map((student) => (
+                <option
+                key={student.id}>{student.firstName}</option>
+            ))}
           </select>
           <button>Add To Campus</button>
       </section>
+
+
 
       <h3>Students Enrolled</h3>
       <section className="edit-campus-student-container">
