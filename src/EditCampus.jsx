@@ -105,13 +105,16 @@ const EditCampus = () => {
             setForm({ ...form, [e.target.name]: e.target.value })
           }
         />
-
         <button>Save Changes</button>
       </form>
-      <select>
-        <option>Select Student...</option>
-      </select>
-      <button>Add To Campus</button>
+
+      <section className="edit-campus-add-student-container">
+          <select>
+            <option>Select Student...</option>
+          </select>
+          <button>Add To Campus</button>
+      </section>
+
       <h3>Students Enrolled</h3>
       <section className="edit-campus-student-container">
         <section className="edit-campus-student-cards">

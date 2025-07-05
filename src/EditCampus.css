@@ -40,6 +40,12 @@
   min-height: 120px;
 }
 
+.edit-campus-add-student-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
 .edit-campus-student-container {
     display: flex;
      align-items: flex-start;
