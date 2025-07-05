@@ -12,22 +12,17 @@ const defaultForm = {
   address: "",
 };
 
-
 const EditCampus = () => {
   const params = useParams();
   const id = params.id;
   const navigate = useNavigate();
 
-
-
   const [form, setForm] = useState(defaultForm);
-  //   const [campus, setCampus] = useState("");
+
   const [students, setStudents] = useState([]);
-  console.log("this is form-->", form);
-  //   console.log("this is campus-->", campus);
-  console.log("this is students--> ", students);
 
-
+  const [selectedStudent, setSelectedStudent] = useState("");
+  console.log("THis is selected student", selectedStudent);
 
   useEffect(() => {
     const fetchCampusByID = async () => {
@@ -41,8 +36,6 @@ const EditCampus = () => {
     fetchCampusByID();
   }, [id]);
 
-
-
   useEffect(() => {
     const fetchAllStudents = async () => {
       try {
@@ -55,25 +48,33 @@ const EditCampus = () => {
     fetchAllStudents();
   }, []);
 
-
-
-  const handleSubmit = async (e) => {
+  const handleSubmitEditCampus = async (e) => {
     e.preventDefault();
     try {
       const response = await api.patch(`campuses/${id}`, form);
-      setCampus(response.data);
+      //   setCampus(response.data);
       navigate(`/campuses/${id}`);
     } catch (error) {
       console.log("Error Editing Campus", error);
     }
   };
 
-
+  const handleSubmitAddStudent = async (e) => {
+    e.preventDefault();
+    try {
+      await api.patch(`students/${selectedStudent}`, { campusId: id });
+      const response = await api.get(`students`);
+      setStudents(response.data);
+      setSelectedStudent(""); // optional: reset dropdown
+    } catch (error) {
+      console.log("Failed to add student", error);
+    }
+  };
 
   return (
     <main className="edit-campus-container">
       <h1>Edit Campus </h1>
-      <form className="edit-campus-form" onSubmit={handleSubmit}>
+      <form className="edit-campus-form" onSubmit={handleSubmitEditCampus}>
         <label>Campus Name:</label>
         <input
           type="text"
@@ -119,20 +120,26 @@ const EditCampus = () => {
         <button>Save Changes</button>
       </form>
 
-
-
-      <section className="edit-campus-add-student-container">
-          <select>
+      <section
+        className="edit-campus-add-student-container"
+        onSubmit={handleSubmitAddStudent}
+      >
+        <form className="edit-campus-add-student-form">
+          <select
+            onChange={(e) => {
+              setSelectedStudent(e.target.value);
+            }}
+          >
             <option>Select Student...</option>
             {students.map((student) => (
-                <option
-                key={student.id}>{student.firstName}</option>
+              <option key={student.id} value={student.id}>
+                {student.firstName}
+              </option>
             ))}
           </select>
-          <button>Add To Campus</button>
+          <button type="submit">Add To Campus</button>
+        </form>
       </section>
-
-
 
       <h3>Students Enrolled</h3>
       <section className="edit-campus-student-container">
