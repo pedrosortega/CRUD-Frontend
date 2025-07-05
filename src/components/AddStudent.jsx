@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router";
 import StudentsList from "./StudentsList";
+import "./AddStudent.css";
 
 const AddStudent = ({ fetchAllStudents }) => {
   const [firstName, setFirstName] = useState("");
@@ -58,10 +59,11 @@ const AddStudent = ({ fetchAllStudents }) => {
   };
 
   return (
-    <div>
-      <h1>JOIN OUR CAMPUS</h1>
+    <div className="add-student-container">
+      <h1 className="form-title">ADD NEW STUDENT</h1>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="student-form">
+        <div className="form-group"> 
         <label htmlFor="firstName">FIRST NAME</label>
         <input
           required
@@ -70,7 +72,9 @@ const AddStudent = ({ fetchAllStudents }) => {
           onChange={(e) => setFirstName(e.target.value)}
           value={firstName}
         />
+        </div>
 
+        <div className="form-group"> 
         <label htmlFor="lastName">LAST NAME</label>
         <input
           required
@@ -79,7 +83,9 @@ const AddStudent = ({ fetchAllStudents }) => {
           onChange={(e) => setLastName(e.target.value)}
           value={lastName}
         />
+        </div> 
 
+        <div className="form-group"> 
         <label htmlFor="email">EMAIL</label>
         <input
           required
@@ -88,7 +94,9 @@ const AddStudent = ({ fetchAllStudents }) => {
           onChange={(e) => setEmail(e.target.value)}
           value={email}
         />
+        </div>
 
+        <div className="form-group"> 
         <label htmlFor="gpa">GPA</label>
         <input
           type="number"
@@ -96,11 +104,15 @@ const AddStudent = ({ fetchAllStudents }) => {
           onChange={(e) => setGPA(e.target.value)}
           value={gpa}
         />
+        </div>
 
+        <div className="form-buttons">
         <button type="submit">Add Student</button>
         <button type="button" onClick={handleClear}>
           Clear
         </button>
+        </div>
+
       </form>
     </div>
   );
