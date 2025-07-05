@@ -76,7 +76,7 @@ const App = () => {
           /> */}
 
           <Route path="/campuses/:id" element={<SingleCampus fetchAllStudents = {fetchAllStudents}/>} />
-          <Route path="/campuses/:id/edit" element={<EditCampus/>}/>
+          <Route path="/campuses/:id/edit" element={<EditCampus fetchAllCampuses = {fetchAllCampuses}/>}/>
 
           <Route
             path="/students"

@@ -15,7 +15,7 @@ const AddCampus = ({ }) => {
   const navigate = useNavigate();
 
   const [form, setForm] = useState(formValues);
-  console.log("form state-->", form);
+  // console.log("form state-->", form);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
