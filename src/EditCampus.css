@@ -39,3 +39,15 @@
 .edit-campus-form textarea {
   min-height: 120px;
 }
+
+.edit-campus-student-container {
+    display: flex;
+     align-items: flex-start;
+    gap: 2rem;
+}
+
+.edit-campus-student-card-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+}
