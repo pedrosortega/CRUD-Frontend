@@ -125,6 +125,12 @@ const HomePage = () => {
         </ul>
       </details>
 
+      <img
+        src="https://i.postimg.cc/k5WqYV2L/Lavender-Love.png"
+        border="0"
+        alt="Lavender-Love"
+      />
+
       <details className="all-campuses-and-students">
         <summary>Technical Requirements 1: All Campuses and Students</summary>
         <ul>
