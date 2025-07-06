@@ -1,5 +1,4 @@
 import React from "react";
-import lavenderLove from "./img/LavenderLove.png";
 import "./style/HomePage.css";
 
 const HomePage = () => {
@@ -125,8 +124,6 @@ const HomePage = () => {
           </ul>
         </ul>
       </details>
-
-      <img src={lavenderLove} alt="Color Pallete"></img>
 
       <details className="all-campuses-and-students">
         <summary>Technical Requirements 1: All Campuses and Students</summary>

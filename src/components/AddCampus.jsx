@@ -20,7 +20,7 @@ const AddCampus = ({}) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("https://crud-backend-jd3px0mnu-markfartushniaks-projects.vercel.app/api/campuses", form);
+      await axios.post(`https://crud-backend-jd3px0mnu-markfartushniaks-projects.vercel.app/api/campuses`, form);
       navigate("/campuses");
     } catch (error) {
       console.error("Error adding task:", error);
