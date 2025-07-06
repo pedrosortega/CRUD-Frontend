@@ -5,17 +5,23 @@ import "./CampusesList.css";
 
 const CampusesList = ({ campuses = [], fetchAllCampuses }) => {
   return (
-    <div className="campus-list-container">
+    <main>
       <h1>Campus Listing</h1>
-      <Link to="/add-campus"><button className="campus-list-button">Add Campus</button></Link>
-      {campuses.map((c) => (
-        <CampusCard
-          key={c.id}
-          campus={c}
-          fetchAllCampuses={fetchAllCampuses}
-        />
-      ))}
-    </div>
+      <div className="campus-list-container">
+        <Link to="/add-campus">
+          <button className="campus-list-button">Add Campus</button>
+        </Link>
+        {campuses.map((c) => (
+          <div className="campus-list-cards">
+            <CampusCard
+              key={c.id}
+              campus={c}
+              fetchAllCampuses={fetchAllCampuses}
+            />
+          </div>
+        ))}
+      </div>
+    </main>
   );
 };
 // This goes at the bottom of the file
