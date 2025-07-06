@@ -50,7 +50,7 @@ const App = () => {
   }, []);
 
   return (
-    <>
+    <main>
       <NavBar />
       <div className="app">
         <Routes>
@@ -92,7 +92,7 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
-    </>
+    </main>
   );
 };
 
