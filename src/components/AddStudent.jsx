@@ -34,7 +34,7 @@ const AddStudent = ({ fetchAllStudents }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/students", // fixed URL (use http not https for localhost)
+        `https://crud-backend-jd3px0mnu-markfartushniaks-projects.vercel.app/api/students`, // fixed URL (use http not https for localhost)
         payload,
         {
           headers: {
