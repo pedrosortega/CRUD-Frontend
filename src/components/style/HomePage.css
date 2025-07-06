@@ -13,7 +13,7 @@ BBD0FF */
 }
 
 .HomePage details {
-  border: 2px solid #E7C6FF;
+  border: 2px solid #e7c6ff;
   border-radius: 8px;
   margin-bottom: 1rem;
   width: 1200px;
@@ -21,9 +21,7 @@ BBD0FF */
   background: #fff;
   transition: border-color 0.3s ease;
 }
-img {
-  width: 1200px;
-}
+
 .HomePage summary {
   cursor: pointer;
   padding: 0.75rem 1rem;
@@ -32,8 +30,8 @@ img {
 }
 
 .user-stories summary {
-  background: #FFD6FF;
-  border-bottom: 1px solid #E7C6FF;
+  background: #ffd6ff;
+  border-bottom: 1px solid #e7c6ff;
 }
 
 .user-stories ul {
@@ -49,20 +47,20 @@ img {
 }
 
 .all-campuses-and-students summary {
-  background: #E7C6FF;
-  border-bottom: 1px solid #C8B8FF;
+  background: #e7c6ff;
+  border-bottom: 1px solid #c8b8ff;
 }
 .single-student-and-single-campus summary {
-  background: #C8B8FF;
-  border-bottom: 1px solid #B8C0FF;
+  background: #c8b8ff;
+  border-bottom: 1px solid #b8c0ff;
 }
 .adding-a-campus-and-adding-a-student summary {
-  background: #B8C0FF;
-  border-bottom: 1px solid #BBD0FF;
+  background: #b8c0ff;
+  border-bottom: 1px solid #bbd0ff;
 }
 .removing-a-campus-and-removing-a-student summary {
-  background: #BBD0FF;
-  border-bottom: 1px solid #FFD6FF;
+  background: #bbd0ff;
+  border-bottom: 1px solid #ffd6ff;
 }
 
 .HomePage summary:hover {
@@ -73,7 +71,6 @@ img {
   padding-left: 1.5rem;
   margin-top: 0.5rem;
 }
-
 
 .HomePage details ul ul {
   padding-left: 1.5rem;
