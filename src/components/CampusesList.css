@@ -1,5 +1,5 @@
 .campus-list {
-  width: 100vw;
+  width: 400vw;
 }
 
 .campus-list-title {
@@ -29,4 +29,19 @@
 }
 
 
+.campus-list-container button {
+    width: 125px;
+    background: #c8b6ff;
+    color: #6c3483;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
 
+.campus-list-container button:hover {
+    background: #b8c0ff;
+}
