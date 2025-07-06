@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import "./AddCampus.css";
+import api from "../api/axiosInstance";
 
 const formValues = {
   name: "",
@@ -20,7 +21,7 @@ const AddCampus = ({}) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post(`https://crud-backend-jd3px0mnu-markfartushniaks-projects.vercel.app/api/campuses`, form);
+      await api.post(`/campuses`, form);
       navigate("/campuses");
     } catch (error) {
       console.error("Error adding task:", error);
