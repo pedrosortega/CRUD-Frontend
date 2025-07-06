@@ -4,7 +4,7 @@ import "./style/HomePage.css";
 const HomePage = () => {
   return (
     <div className="HomePage">
-      <h1>Campus Listing</h1>
+      <h1>Campus Listing CRUD App</h1>
 
       <details open className="user-stories">
         <summary>User Stories</summary>
