@@ -71,6 +71,18 @@ const EditCampus = () => {
     }
   };
 
+
+
+  const handleRemove = async (studentId) => {
+    try {
+        await api.patch(`students/${studentId}`,{campusId: null})
+        const response = await api.get('students')
+        setStudents(response.data)
+    } catch(error) {
+        console.log("Failed to remove student")
+    }
+  }
+
   return (
     <main className="edit-campus-container">
       <h1>Edit Campus </h1>
@@ -120,11 +132,13 @@ const EditCampus = () => {
         <button>Save Changes</button>
       </form>
 
+
+
       <section
         className="edit-campus-add-student-container"
-        onSubmit={handleSubmitAddStudent}
+        
       >
-        <form className="edit-campus-add-student-form">
+        <form className="edit-campus-add-student-form" onSubmit={handleSubmitAddStudent}>
           <select
             onChange={(e) => {
               setSelectedStudent(e.target.value);
@@ -141,6 +155,8 @@ const EditCampus = () => {
         </form>
       </section>
 
+
+
       <h3>Students Enrolled</h3>
       <section className="edit-campus-student-container">
         <section className="edit-campus-student-cards">
@@ -152,7 +168,9 @@ const EditCampus = () => {
                 key={student.id}
               >
                 <StudentCard student={student} />
-                <button>Remove</button>
+                <button
+                onClick={() => handleRemove(student.id)}
+                >Remove</button>
               </section>
             ))}
         </section>
