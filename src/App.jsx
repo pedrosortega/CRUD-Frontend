@@ -30,7 +30,6 @@ const App = () => {
       setStudents(StudentResponse.data);
     } catch (error) {
       console.error("Error fetching: ", error);
-      s;
     }
   }
 

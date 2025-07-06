@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router";
 import StudentsList from "./StudentsList";
 import "./AddStudent.css";
+import api from "../api/axiosInstance";
 
 const AddStudent = ({ fetchAllStudents }) => {
   const [firstName, setFirstName] = useState("");
@@ -33,8 +34,8 @@ const AddStudent = ({ fetchAllStudents }) => {
     };
 
     try {
-      const response = await axios.post(
-        `https://crud-backend-jd3px0mnu-markfartushniaks-projects.vercel.app/api/students`, // fixed URL (use http not https for localhost)
+      const response = await api.post(
+        `/students`, // fixed URL (use http not https for localhost)
         payload,
         {
           headers: {
