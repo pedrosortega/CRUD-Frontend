@@ -5,8 +5,8 @@ import "./CampusesList.css";
 
 const CampusesList = ({ campuses = [], fetchAllCampuses }) => {
   return (
-    <main>
-      <h1>Campus Listing</h1>
+    <main className="campus-list">
+      <h1 className="campus-list-title">Campus Listing</h1>
       <div className="campus-list-container">
         <Link to="/add-campus">
           <button className="campus-list-button">Add Campus</button>
