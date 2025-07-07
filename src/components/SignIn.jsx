@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import "./SignIn.css"
 
 
 const  signUpValues = {
@@ -28,10 +29,10 @@ const SignIn = () => {
 
 
     return (
-        <main className="login-page-container">
-      <h1>Login</h1>
+        <main className="signIn-page-container">
+      <h1> Sign Up </h1>
       <form className="username-creation" onSubmit={handleSubmit}>
-        <label htmlFor="login-page"> </label>
+        <label htmlFor="login-page"> Create a Username: </label>
         <input
           type="text"
           id="username"
@@ -43,7 +44,7 @@ const SignIn = () => {
           }
         />
 
-        <label htmlFor="password-creation">Create a Password:</label>
+        <label htmlFor="password-creation"> Create a Password: </label>
         <input
           type="text"
           id="signIn-password"

@@ -17,6 +17,7 @@ import SingleStudent from "./components/SingleStudent";
 import NotFound from "./components/NotFound";
 import AddStudent from "./components/AddStudent";
 import EditCampus from "./EditCampus";
+import SignIn from "./components/SignIn"
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 
 const App = () => {
@@ -88,7 +89,7 @@ const App = () => {
             element={<SingleStudent fetchAllStudents={fetchAllStudents} />}
           />
 
-          <Route path="/signup" element={<SignIn />} />
+          <Route path="/signIn" element={<SignIn />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>
