@@ -1,0 +1,10 @@
+.signIn-page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* centers the form horizontally */
+  padding: 2rem;
+  background-color: #f9f9f9;
+  gap: 2rem;
+  min-height: 100vh; /* optional: centers vertically too */
+}
