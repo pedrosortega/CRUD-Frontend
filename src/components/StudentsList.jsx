@@ -1,11 +1,14 @@
 import React from "react";
 import StudentCard from "./StudentCard";
 import { Link } from "react-router";
-import "./style/StudentList.css"
+import "./style/StudentList.css";
 
-const isAuthenticated = false; // ← set to true to test how it would look
-
-const StudentsList = ({ students = [], fetchAllStudents }) => {
+const StudentsList = ({
+  students = [],
+  fetchAllStudents,
+  isAuthenticated,
+  setIsAuthenticated,
+}) => {
   return (
     <div className="student-list-div">
       <div className="isUser">

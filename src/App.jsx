@@ -23,7 +23,17 @@ import { BrowserRouter as Router, Routes, Route } from "react-router";
 const App = () => {
   const [students, setStudents] = useState([]);
   const [campuses, setCampuses] = useState([]);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
+  async function checkAuth() {
+    try {
+      const response = await axios.get("/auth/me", { withCredentials: true });
+      setIsAuthenticated(true);
+    } catch (err) {
+      setIsAuthenticated(false);
+    }
+  }
   async function fetchAllStudents() {
     try {
       const StudentResponse = await api.get(`/students`);
@@ -47,18 +57,28 @@ const App = () => {
   useEffect(() => {
     fetchAllCampuses();
     fetchAllStudents();
+    checkAuth();
   }, []);
 
   return (
     <main>
-      <NavBar />
+      <NavBar
+        isAuthenticated={isAuthenticated}
+        setIsAuthenticated={setIsAuthenticated}
+      />
       <div className="app">
         <Routes>
           <Route path="/" element={<HomePage />} />
 
           <Route
             path="/campuses"
-            element={<CampusesList campuses={campuses} />}
+            element={
+              <CampusesList
+                campuses={campuses}
+                isAuthenticated={isAuthenticated}
+                setIsAuthenticated={setIsAuthenticated}
+              />
+            }
           />
           <Route
             path="/add-campus"
@@ -76,7 +96,13 @@ const App = () => {
 
           <Route
             path="/students"
-            element={<StudentsList students={students} />}
+            element={
+              <StudentsList
+                students={students}
+                isAuthenticated={isAuthenticated}
+                setIsAuthenticated={setIsAuthenticated}
+              />
+            }
           />
           <Route
             path="/students/new"
@@ -89,6 +115,8 @@ const App = () => {
           />
 
           <Route path="/signIn" element={<SignIn />} />
+
+          <Route path="/login" element={<SignIn />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>
