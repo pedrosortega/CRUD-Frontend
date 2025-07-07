@@ -8,3 +8,14 @@
   gap: 2rem;
   min-height: 100vh; /* optional: centers vertically too */
 }
+
+.username-creation {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  gap: 1.5rem;
+}
