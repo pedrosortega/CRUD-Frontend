@@ -21,6 +21,11 @@ const AddStudent = ({ fetchAllStudents }) => {
     setGPA("");
   };
 
+  const isUserAuthenticated = false; // Replace with actual authentication logic
+  if (!isUserAuthenticated) {
+    return <p>Please log in to add students.</p>;
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
