@@ -25,6 +25,7 @@ const NavBar = ({ isAuthenticated, setIsAuthenticated }) => {
       </NavLink>
       <NavLink to="/campuses"> Campuses </NavLink>
       <NavLink to="/students"> Students </NavLink>
+
       <div className="auth">
         {!isAuthenticated ? (
           <>
@@ -37,6 +38,7 @@ const NavBar = ({ isAuthenticated, setIsAuthenticated }) => {
           </NavLink>
         )}
       </div>
+
     </nav>
   );
 };

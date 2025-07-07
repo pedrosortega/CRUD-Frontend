@@ -19,6 +19,7 @@ import AddStudent from "./components/AddStudent";
 import EditCampus from "./EditCampus";
 import SignIn from "./components/SignIn";
 import { BrowserRouter as Router, Routes, Route } from "react-router";
+import LogIn from "./components/Login"
 
 const App = () => {
   const [students, setStudents] = useState([]);
