@@ -77,7 +77,6 @@ const App = () => {
             path="/students"
             element={<StudentsList students={students} />}
           />
-
           <Route
             path="/students/new"
             element={<AddStudent fetchAllStudents={fetchAllStudents} />}
