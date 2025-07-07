@@ -105,7 +105,7 @@ const HomePage = () => {
                   [ ✔ ] navigate to the single campus view of the student's
                   enrolled campus
                 </li>
-                <li>[ ✔ ] delete the student</li>
+                <li>[ ✔ ] delete the student <strong>(purposely moved to the editing mode of a single student card)</strong></li>
                 <li>
                   [ ✔ ] edit the student's information (including campus
                   enrollment)
