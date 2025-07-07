@@ -9,6 +9,7 @@
   min-height: 100vh; /* optional: centers vertically too */
 }
 
+
 .username-creation {
   display: flex;
   flex-direction: column;
@@ -18,4 +19,20 @@
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   gap: 1.5rem;
+}
+
+.username-creation label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+}
+
+.username-creation input {
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
