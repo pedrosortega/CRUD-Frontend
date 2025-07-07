@@ -17,7 +17,7 @@ import SingleStudent from "./components/SingleStudent";
 import NotFound from "./components/NotFound";
 import AddStudent from "./components/AddStudent";
 import EditCampus from "./EditCampus";
-import SignIn from "./components/SignIn"
+import SignIn from "./components/SignIn";
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 
 const App = () => {
