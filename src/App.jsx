@@ -22,6 +22,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router";
 const App = () => {
   const [students, setStudents] = useState([]);
   const [campuses, setCampuses] = useState([]);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   async function fetchAllStudents() {
     try {
@@ -89,6 +90,8 @@ const App = () => {
           />
 
           <Route path="/signup" element={<SignIn />} />
+
+          <Route path="/login" element={<SignIn />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>

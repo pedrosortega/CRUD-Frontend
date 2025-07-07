@@ -1,5 +1,7 @@
 import { React, useState } from "react";
 
-const LogOut = () => {};
+const LogOut = () => {
+  const [logOut, setLogOut] = useState;
+};
 
 export default LogOut;
