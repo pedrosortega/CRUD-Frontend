@@ -32,9 +32,10 @@ const NavBar = ({ isAuthenticated, setIsAuthenticated }) => {
             <NavLink to="/login">Login</NavLink>
           </>
         ) : (
-          <NavLink to="/log-out">Log Out</NavLink>
+          <NavLink to="/log-out" onClick={handleLogout}>
+            Log Out
+          </NavLink>
         )}
-        ;
       </div>
     </nav>
   );

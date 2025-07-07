@@ -17,7 +17,7 @@ const SignIn = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post(`https://localhost:3000/auth/index/signUp`, signIn);
+      await axios.post("https://localhost:3000/auth/signup", signIn);
       navigate("/app");
     } catch (error) {
       console.error("Error adding task:", error);
@@ -35,9 +35,7 @@ const SignIn = () => {
           name="name"
           value={signIn.username}
           required
-          onChange={(e) =>
-            setUpSignIn({ ...signIn, [e.target.name]: e.target.value })
-          }
+          onChange={(e) => setUpSignIn({ [e.target.username]: e.target.value })}
         />
 
         <label htmlFor="password-creation"> Create a Password: </label>
@@ -47,9 +45,7 @@ const SignIn = () => {
           name="password"
           value={signIn.password}
           required
-          onChange={(e) =>
-            setUpSignIn({ ...signIn, [e.target.name]: e.target.value })
-          }
+          onChange={(e) => setUpSignIn({ [e.target.password]: e.target.value })}
         />
 
         <button>Submit</button>
