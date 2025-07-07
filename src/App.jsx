@@ -88,6 +88,8 @@ const App = () => {
             element={<SingleStudent fetchAllStudents={fetchAllStudents} />}
           />
 
+          <Route path="/signup" element={<SignIn />} />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
