@@ -19,6 +19,7 @@ import AddStudent from "./components/AddStudent";
 import EditCampus from "./EditCampus";
 import SignIn from "./components/SignIn"
 import { BrowserRouter as Router, Routes, Route } from "react-router";
+import LogIn from "./components/Login"
 
 const App = () => {
   const [students, setStudents] = useState([]);
@@ -89,7 +90,7 @@ const App = () => {
           />
 
           <Route path="/signIn" element={<SignIn />} />
-
+          <Route path="/logIn" element={<LogIn/>}/>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
