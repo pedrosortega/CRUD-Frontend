@@ -3,9 +3,12 @@ import CampusCard from "./CampusCard";
 import { Link } from "react-router";
 import "./CampusesList.css";
 
-const isAuthenticated = false; // ← set to true to test how it would look
-
-const CampusesList = ({ campuses = [], fetchAllCampuses }) => {
+const CampusesList = ({
+  campuses = [],
+  fetchAllCampuses,
+  isAuthenticated,
+  setIsAuthenticated,
+}) => {
   return (
     <main className="campus-list">
       <h1 className="campus-list-title">Campus Listing</h1>

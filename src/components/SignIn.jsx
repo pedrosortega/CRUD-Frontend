@@ -2,25 +2,22 @@ import React, { useState } from "react";
 import { Link } from "react-router";
 import axios from "axios";
 import { useNavigate } from "react-router";
-import "./SignIn.css"
+import "./SignIn.css";
 
-
-const  signUpValues = {
+const signUpValues = {
   username: "",
   passsword: "",
- };
-
-
+};
 
 const SignIn = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const [signIn, setUpSignIn] = useState ([signUpValues])
-    
-    const handleSubmit = async (event) => {
+  const [signIn, setUpSignIn] = useState([signUpValues]);
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post(`https://localhost:3000/auth/index/signUp`, signIn);
+      await axios.post("https://localhost:3000/auth/signup", signIn);
       navigate("/app");
     } catch (error) {
       console.error("Error adding task:", error);
@@ -28,8 +25,8 @@ const SignIn = () => {
   };
 
 
-    return (
-      <main className="signIn-page-container">
+  return (
+    <main className="signIn-page-container">
       <h1> Sign Up </h1>
       <form className="username-creation" onSubmit={handleSubmit}>
         <label htmlFor="login-page"> Create a Username: </label>
@@ -39,9 +36,7 @@ const SignIn = () => {
           name="name"
           value={signIn.username}
           required
-          onChange={(e) =>
-            setUpSignIn({ ...signIn, [e.target.name]: e.target.value })
-          }
+          onChange={(e) => setUpSignIn({ [e.target.username]: e.target.value })}
         />
 
         <label htmlFor="password-creation"> Create a Password: </label>
@@ -49,22 +44,15 @@ const SignIn = () => {
           type="text"
           id="signIn-password"
           name="password"
-          value = {signIn.password}
+          value={signIn.password}
           required
-          onChange={(e) =>
-            setUpSignIn({ ...signIn, [e.target.name]: e.target.value })
-          }
+          onChange={(e) => setUpSignIn({ [e.target.password]: e.target.value })}
         />
 
         <button>Submit</button>
       </form>
     </main>
-
-
-    );
-
-
-
+  );
 };
 
-export default SignIn; 
+export default SignIn;

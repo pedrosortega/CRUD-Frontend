@@ -9,7 +9,6 @@
   min-height: 100vh; /* optional: centers vertically too */
 }
 
-
 .username-creation {
   display: flex;
   flex-direction: column;
@@ -36,7 +35,6 @@
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-
 
 .password-creation {
   display: flex;

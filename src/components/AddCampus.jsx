@@ -12,8 +12,13 @@ const formValues = {
   address: "",
 };
 
-const AddCampus = ({}) => {
+const AddCampus = ({ }) => {
   const navigate = useNavigate();
+
+  const isUserAuthenticated = false; // Replace with actual authentication logic
+  if (!isUserAuthenticated) {
+    return <p>Please log in to add campuses.</p>;
+  }
 
   const [form, setForm] = useState(formValues);
   // console.log("form state-->", form);
