@@ -1,52 +1,55 @@
 import React, { useState } from "react";
-import { Link } from "react-router";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import "./SignIn.css";
 
 const signUpValues = {
   username: "",
-  passsword: "",
+  password: "", // ✅ typo fixed
 };
 
 const SignIn = () => {
   const navigate = useNavigate();
-
-  const [signIn, setUpSignIn] = useState([signUpValues]);
+  const [signIn, setUpSignIn] = useState(signUpValues); // ✅ use object, not array
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("https://localhost:3000/auth/signup", signIn);
-      navigate("/app");
+      await axios.post("http://localhost:8080/auth/signup", signIn, {
+        withCredentials: true,
+      });
+      navigate("/");
     } catch (error) {
-      console.error("Error adding task:", error);
+      console.error("Error signing up:", error);
     }
   };
-
 
   return (
     <main className="signIn-page-container">
       <h1> Sign Up </h1>
       <form className="username-creation" onSubmit={handleSubmit}>
-        <label htmlFor="login-page"> Create a Username: </label>
+        <label htmlFor="username"> Create a Username: </label>
         <input
           type="text"
           id="username"
-          name="name"
+          name="username"
           value={signIn.username}
           required
-          onChange={(e) => setUpSignIn({ [e.target.username]: e.target.value })}
+          onChange={(e) =>
+            setUpSignIn((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+          }
         />
 
-        <label htmlFor="password-creation"> Create a Password: </label>
+        <label htmlFor="password"> Create a Password: </label>
         <input
-          type="text"
+          type="password"
           id="signIn-password"
           name="password"
           value={signIn.password}
           required
-          onChange={(e) => setUpSignIn({ [e.target.password]: e.target.value })}
+          onChange={(e) =>
+            setUpSignIn((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+          }
         />
 
         <button>Submit</button>
